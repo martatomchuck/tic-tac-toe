@@ -1,15 +1,21 @@
 body {
+    box-sizing: border-box;
+    height: 100vh;
+    margin: 0;
     font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .board {
-    width: 306px;
+    width: 606px;
     background: #f0f0f0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 100px);
+    grid-template-rows: repeat(3, 200px);
     grid-gap: 5px;
-    border: 3px solid #ddd;
+    border: 2px solid #ddd;
     cursor: pointer;
 }
 
@@ -18,7 +24,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 5rem;
     color: #222;
 }
 
