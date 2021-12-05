@@ -27,6 +27,8 @@ boxes.forEach(box => box.addEventListener('click', pick));
 
 function pick(event) {
     // współrzędne elementów na tablicy board[row][column]
+    // pobierane z atrybutu data i zapisywane do zmiennych row, column
+    // event.target.dataset zwraca obiekt: DOMStringMap {row: '1', column: '2'}
     const { row, column } = event.target.dataset;
 
     // PLAYER1 porusza się w rundach nieparzystych
