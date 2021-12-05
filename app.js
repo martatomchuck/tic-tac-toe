@@ -33,12 +33,17 @@ function pick(event) {
     // PLAYER2 porusza się w rundach parzystych
     const turn = round % 2 === 0 ? PLAYER2 : PLAYER1;
 
-    // Jeśli pole jest puste (falsy) funkcja wykonuje się dalej, wstawiamy odpowiednią wartość do pustego pola
-    // Jeśli pole nie jest puste (truthy) - zatrzymujemy działanie funkcji (blokujemy możliwość ponownego kliknięcia)
+    // jeśli pole jest puste (falsy) funkcja wykonuje się dalej, wstawiamy odpowiednią wartość do pustego pola
+    // jeśli pole nie jest puste (truthy) - zatrzymujemy działanie funkcji (blokujemy możliwość ponownego kliknięcia)
     if (board[row][column]) return;
 
-    event.target.classList.add(turn);
-    board[row][column] = turn;
+    if (winner) {
+        // po zakończonej grze: blokada pól na planszy
+        board[row][column] = null;
+    } else {
+        event.target.classList.add(turn);
+        board[row][column] = turn;
+    }
 
     // sprawdzenie wyniku gry
     check();
