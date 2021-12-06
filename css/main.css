@@ -4,8 +4,9 @@ body {
     margin: 0;
     font-family: sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 
 .board {
@@ -30,4 +31,10 @@ body {
 
 .box:hover {
     background: #fafafa;
+}
+
+#score {
+    color: red;
+    font-size: 60px;
+    height: 60px;
 }

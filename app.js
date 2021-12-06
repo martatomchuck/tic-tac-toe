@@ -22,6 +22,8 @@ const combinations = [
     [2,4,6]
 ]
 
+const score = document.getElementById("score");
+
 const boxes = [...document.querySelectorAll('.box')];
 boxes.forEach(box => box.addEventListener('click', pick));
 
@@ -72,12 +74,22 @@ function check() {
     combinations.forEach(combination => {
         if (combination.every(index => moves[PLAYER1].indexOf(index) > -1)) {
             winner = "Winner: Player 1";
+            displayScore(PLAYER1);
         }
         if (combination.every(index => moves[PLAYER2].indexOf(index) > -1)) {
             winner = "Winner: Player 2";
+            displayScore(PLAYER2);
         }
     })
 
     console.log(winner);
     return winner;
+}
+
+function displayScore(winnerIcon) {
+    score.textContent = "And the Winner is: ";
+
+    const icon = document.createElement("span");
+    icon.classList.add("fa", winnerIcon);
+    score.appendChild(icon);
 }
